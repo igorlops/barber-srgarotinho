@@ -1,0 +1,18 @@
+#services .card{
+    --bs-card-border-color:none;
+    border: 0.1px solid #eeefff;
+}
+
+#services .card:hover{
+    scale: 1.05;
+    transition: .5s;
+}
+
+#services .card:not(:hover){
+    scale: 1;
+    transition: .5s;
+}
+
+.detalhe-individual-servico{
+    margin: 0 auto;
+}

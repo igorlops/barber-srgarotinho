@@ -1,38 +1,56 @@
-.App {
-  text-align: center;
+#App #navbar-desktop {
+  display: block;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#App #navbar-desktop nav{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around!important;
+}
+#App #navbar-desktop nav ul li a{
+  cursor: pointer;
+}
+#App #navbar-desktop nav ul li a:hover{
+  transition: .5s;
+  color: brown;
+}
+#App #navbar-mobile {
+  display: none;
+}
+#button-whatsapp{
+  font-size:50px;
   color: white;
+  background-color: rgb(37, 211, 102);
+  padding: 7px 20px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  animation: whatsapp 5s infinite;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes whatsapp {
+  0%{
+    scale: 0.95;
   }
-  to {
-    transform: rotate(360deg);
+  50%{
+    scale: 1.1;
+  }
+  100%{
+    scale: 0.95;
+  }
+}
+#button-whatsapp:hover{
+  transition: .5s;
+  background-color: rgb(27, 151, 73);
+}
+#button-whatsapp:not(:hover){
+  transition: .5s;
+  background-color: rgb(37, 211, 102);
+}
+@media screen and (max-width:600px) {
+  #App #navbar-desktop {
+    display: none;
+  }
+  #App #navbar-mobile {
+    display: block;
   }
 }
