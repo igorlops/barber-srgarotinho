@@ -2,7 +2,6 @@
 .header-container {
     position: relative;
     width: 100%;
-    margin-top: 3.8em;
   }
 
   .navbar-brand img {
@@ -15,12 +14,17 @@
     transform: translate(-50%, -50%);
     color: white;
     z-index: 2;
-    text-align: center;
+    text-align: left;
   }
   
   .header-titulo h1 {
     margin: 0;
-    font-size: 7.5rem!important;
+    font-size: 4.5rem!important;
+    color: #fff3dc;
+  }
+  .header-titulo h1 span{
+    margin: 0;
+    font-size: 6rem!important;
     color: #fff3dc;
   }
   .header-titulo p {

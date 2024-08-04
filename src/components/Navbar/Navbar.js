@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-scroll';
 
-const Navbar = () => {
+const Navbar = ({ isScrolled }) => {
   return (
     <div id='navbar-desktop'>
-        <nav className='navbar navbar-expand fixed-top bg-light'>
+        <nav className={`navbar navbar-expand fixed-top ${isScrolled ? 'bg-light' : 'bg-transparent'}`}>
           <div className="container">
             <Link className="navbar-brand" to="header" smooth={true} duration={500}>
               <img src="imgs/logo-sr-garotinho.jpg" 

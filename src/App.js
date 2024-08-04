@@ -1,16 +1,17 @@
 import './App.css';
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import Services from './components/Services/Services';
 import Depoimentos from './components/Depoimentos/Depoimentos';
 import Contato from './components/Contato/Contato';
 import { Element , Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
-import Navbar from './components/Navbar/Navbar';
-import NavbarMobile from './components/Navbar/NavbarMobile';
+import Navbar from './components/Navbar/Navbar'; 
+import Footer from './components/Footer/Footer'; 
+import NavbarMobile from './components/Navbar/NavbarMobile'; 
 import Whatsapp from './components/Itens/Whatsapp';
 
 function App() {
-  React.useEffect(() => {
+  useEffect(() => {
     
     // Registering the 'begin' event and logging it to the console when triggered.
     Events.scrollEvent.register('begin', (to, element) => {
@@ -32,9 +33,27 @@ function App() {
     };
   }, []);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);   
+
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
-      <div id="App">
-          <Navbar/>
+      <div id="App" className='bg-dark text-white-50'>
+          <Navbar isScrolled={isScrolled} />
           <NavbarMobile/>
           <Element name="header">
             <Header />
@@ -51,6 +70,7 @@ function App() {
             <Contato />
           </Element>
           <Whatsapp/>
+          <Footer/>
 
       </div>
   );

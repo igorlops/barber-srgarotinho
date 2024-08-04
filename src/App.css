@@ -6,6 +6,7 @@
   justify-content: space-around!important;
 }
 #App #navbar-desktop nav ul li a{
+  color: #fff3dc!important;
   cursor: pointer;
 }
 #App #navbar-desktop nav ul li a:hover{
@@ -38,6 +39,11 @@
     scale: 0.95;
   }
 }
+
+.titulo-section {
+  font-size: 4.5em!important;
+  margin-bottom: 5px;
+}
 #button-whatsapp:hover{
   transition: .5s;
   background-color: rgb(27, 151, 73);
@@ -46,6 +52,24 @@
   transition: .5s;
   background-color: rgb(37, 211, 102);
 }
+
+.text-white-50{
+  color: rgb(212, 30, 30)!important;
+}
+
+.btn-warning {
+  margin-top: 20px;
+  background-color: #fff3dc !important;
+  border: none!important;
+  font-size: 20px!important;
+  font-weight: 500;
+}
+.btn-warning:hover {
+  margin-top: 20px;
+  background-color: #d7be91 !important;
+  border: none!important;
+}
+
 @media screen and (max-width:600px) {
   #App #navbar-desktop {
     display: none;

@@ -49,39 +49,41 @@ const Depoimentos = () => {
 
   return (
     <div id='depoimentos' className='py-5 text-center'>
-      <h1>O que falaram do Sr. Garotinho:</h1>
+      <h2 className='titulo-section'>O que falaram sobre nós</h2>
 
       <p>Segundo o Google Negócio, essas são as minhas avaliações:</p>
       <div className='avaliacoes-google'>
-        <div className="d-flex justify-content-around flex-wrap">
-          {avaliacoes_google.map(element => (
-            <>
-              <div className="avaliacaosingle card my-3 p-2">
-                <div className="img-perfil-depoimento d-flex justify-content-center d-flex">
-                  <img src={element.imagem} alt="Não funcionou" />
-                  <div className="titulo-avaliacao d-flex text-center flex-column">
-                    <h6>{element.autor}</h6>
-                    <div className="estrelas-depoimentos text-warning flex-row justify-content-center">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
+          <div className="container">
+            <div className="d-flex justify-content-around flex-wrap">
+            {avaliacoes_google.map(element => (
+              <>
+                <div className="avaliacaosingle card my-3 p-2 col-3">
+                  <div className="img-perfil-depoimento d-flex justify-content-center d-flex">
+                    <img src={element.imagem} alt="Não funcionou" />
+                    <div className="titulo-avaliacao d-flex text-center flex-column">
+                      <h6>{element.autor}</h6>
+                      <div className="estrelas-depoimentos text-warning flex-row justify-content-center">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                      </div>
                     </div>
                   </div>
+                  <div className="comentario-depoimento">
+                    <p>{element.comentario}</p>
+                  </div>
+                  <div className="stars">
+                    <a href={element.link}>Ver mais</a>
+                  </div>
                 </div>
-                <div className="comentario-depoimento">
-                  <p>{element.comentario}</p>
-                </div>
-                <div className="stars">
-                  <a href={element.link}>Ver mais</a>
-                </div>
-              </div>
-            </>
-          ))}
+              </>
+            ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   )
 }
 

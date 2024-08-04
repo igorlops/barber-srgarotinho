@@ -11,33 +11,23 @@ const Services = () => {
   let listServicos = [
     {
       "title":"Corte social",
-      "image":"./imgs/corteadulto.jpg",
-      "detalhes":"",
-      "preco":"20,00"
+      "detalhes":"Corte clássico e elegante, ideal para diversas ocasiões",
     },
     {
       "title":"Corte degradê",
-      "image":"./imgs/degrade.jpg",
-      "detalhes":"",
-      "preco":"12,00"
+      "detalhes":"Corte moderno e versátil, com efeito de volume e movimento.",
     },
     {
       "title":"Barba Simples",
-      "image":"./imgs/barba.jpg",
-      "detalhes":"",
-      "preco":"15,00"
+      "detalhes":"Manutenção profissional da barba, com remoção de pelos excedentes.",
     },
     {
       "title":"Barba Desenhada",
-      "image":"./imgs/barba.jpg",
-      "detalhes":"",
-      "preco":"20,00"
+      "detalhes":"Design personalizado da barba, realçando os traços faciais.",
     },
     {
       "title":"Sobrancelhas",
-      "image":"./imgs/barba.jpg",
-      "detalhes":"",
-      "preco":"5,00"
+      "detalhes":"Design preciso das sobrancelhas, harmonizando o rosto.",
     }
   ]
   
@@ -50,36 +40,52 @@ const Services = () => {
   return (
     <div id='services'>
       <div data-aos="fade-up" className='py-5'>
-        <h1 className='text-center'>
+        <h2 className='text-center titulo-section'>
           Serviços
-        </h1>
+        </h2>
       </div>
-      <div className="d-flex flex-row flex-wrap justify-content-around">
-        {listServicos.map(servico => (
-              <div className="servico-individual">
-
-                <Card style={{ width: '18rem' }} className='mb-5'>
-                  <div className="overlay-servicos" 
-                    style={{
-                      display:"none",
-                      position:"absolute",
-                      top:"0",
-                      left:"0",
-                      width:"100%",
-                      height:"100%",
-                      backgroundColor:"rgba(0,0,0,0.5)"
-                    }}>  
+      <div className="container mb-5">
+        <div className="d-flex flex-row flex-wrap justify-content-around">
+          {listServicos.map(servico => (
+                <div className="servico-individual">
+                  <div style={{ width: '14rem' }} className='card bg-dark text-white'>
+                    <div className='card-body'>
+                      <div className='text-center card-title'>
+                        <img src='imgs/poste-de-barbeiro.png' alt='ícone poste de barbeiro'/>
+                        {servico.title}
+                      </div>
+                      <div className='card-text' >
+                        {servico.detalhes}
+                      </div>
+                    </div>
                   </div>
-                  <Card.Img variant="top" style={{objectFit:"cover"}} height="200px" src={servico.image} />
-                  <Card.Body>
-                    <Card.Title className='text-center'>{servico.title}</Card.Title>
-                    <Card.Text >
-                      {servico.detalhes}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </div>
-        ))}
+                </div>
+          ))}
+        </div>
+      </div>
+      <div className='section-image-services' 
+          style={{
+              backgroundImage: `url('/imgs/backattachment.png')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed",
+              height: "500px",
+              position: 'relative' /* Adicione position: relative ao elemento pai */
+          }}>
+          <div className="overlay-services" 
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems:'center'
+                }}>
+              <h2 className="overlay-text-services">Seu Texto Aqui</h2>
+          </div>
       </div>
     </div>
   )

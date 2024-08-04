@@ -4,7 +4,7 @@ import './Contato.css'
 const Contato = () => {
   return (
     <div id='contato' className='py-5 text-center'>
-      <h1>Entre em contato conosco</h1>
+      <h2 className='titulo-section'>Entre em contato conosco</h2>
       <h6>Nos visite</h6>
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.9018733355592!2d-38.59466671513639!3d-3.831227133740984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c7535844cf2041%3A0xc0dde312c2e4ed74!2sBarbearia%20Sr%20Garotinho!5e0!3m2!1spt-BR!2sbr!4v1707020392885!5m2!1spt-BR!2sbr" 
