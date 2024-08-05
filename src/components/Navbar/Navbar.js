@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-scroll';
 
-const Navbar = ({ isScrolled }) => {
+const Navbar = () => {
+  
+  const [isScrolled, setIsScrolled] = useState(false);
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);   
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div id='navbar-desktop'>
-        <nav className={`navbar navbar-expand fixed-top ${isScrolled ? 'bg-light' : 'bg-transparent'}`}>
+        <nav className={`navbar navbar-expand fixed-top ${isScrolled ? 'bg-dark' : 'bg-transparent'}`} style={{transition:".5s"}}>
           <div className="container">
             <Link className="navbar-brand" to="header" smooth={true} duration={500}>
               <img src="imgs/logo-sr-garotinho.jpg" 

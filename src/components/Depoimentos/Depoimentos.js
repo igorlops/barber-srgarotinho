@@ -57,7 +57,7 @@ const Depoimentos = () => {
             <div className="d-flex justify-content-around flex-wrap">
             {avaliacoes_google.map(element => (
               <>
-                <div className="avaliacaosingle card my-3 p-2 col-3">
+                <div className="avaliacaosingle card my-3 p-2 col-2">
                   <div className="img-perfil-depoimento d-flex justify-content-center d-flex">
                     <img src={element.imagem} alt="Não funcionou" />
                     <div className="titulo-avaliacao d-flex text-center flex-column">

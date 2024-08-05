@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import Header from './components/Header/Header';
 import Services from './components/Services/Services';
 import Depoimentos from './components/Depoimentos/Depoimentos';
@@ -33,27 +33,9 @@ function App() {
     };
   }, []);
 
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);   
-
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   return (
       <div id="App" className='bg-dark text-white-50'>
-          <Navbar isScrolled={isScrolled} />
+          <Navbar/>
           <NavbarMobile/>
           <Element name="header">
             <Header />
