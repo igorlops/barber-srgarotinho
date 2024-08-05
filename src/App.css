@@ -5,11 +5,11 @@
   display: flex;
   justify-content: space-around!important;
 }
-#App #navbar-desktop nav ul li a{
+#App #navbar-desktop nav ul li a.link-dark{
   color: #fff3dc!important;
   cursor: pointer;
 }
-#App #navbar-desktop nav ul li a:hover{
+#App #navbar-desktop nav ul li a.link-dark:hover{
   transition: .5s;
   color: brown;
 }
@@ -20,7 +20,7 @@
   font-size:40px;
   color: white;
   background-color: rgb(37, 211, 102);
-  padding: 7px 20px;
+  padding: 10px 20px;
   border-radius: 50%;
   position: fixed;
   bottom: 20px;
@@ -41,11 +41,6 @@
   }
 }
 
-.titulo-section {
-  font-size: 4.5em!important;
-  margin-bottom: 5px;
-  color:#d7be91;
-}
 #button-whatsapp:hover{
   transition: .5s;
   background-color: rgb(27, 151, 73);
@@ -55,20 +50,43 @@
   background-color: rgb(37, 211, 102);
 }
 
-.text-white-50{
-  color: rgb(212, 30, 30)!important;
+.titulo-section-dark {
+  font-size: 4.5em!important;
+  margin-bottom: 5px;
+  color:#d7be91;
+  text-align: center;
 }
 
-.btn-warning {
+.btn-warning-dark {
   margin-top: 20px;
   background-color: #fff3dc !important;
   border: none!important;
   font-size: 20px!important;
   font-weight: 500;
 }
-.btn-warning:hover {
+.btn-warning-dark:hover {
   margin-top: 20px;
   background-color: #d7be91 !important;
+  border: none!important;
+}
+.titulo-section-light {
+  font-size: 4.5em!important;
+  margin-bottom: 5px;
+  color:#68542f;
+  text-align: center;
+}
+
+.btn-warning-light {
+  margin-top: 20px;
+  background-color: #c9aa70 !important;
+  border: none!important;
+  font-size: 20px!important;
+  font-weight: 500;
+}
+.btn-warning-light:hover {
+  margin-top: 20px;
+  background-color: #68542f !important;
+  color: white;
   border: none!important;
 }
 .nav-link {

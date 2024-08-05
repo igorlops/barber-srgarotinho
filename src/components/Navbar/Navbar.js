@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-scroll';
+import { ThemeContext } from '../../theme/Theme' 
 
 const Navbar = () => {
   
+  const {theme, setTheme} = useContext(ThemeContext);
   const [isScrolled, setIsScrolled] = useState(false);
 
 
@@ -21,9 +23,12 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  const handleThemeChange = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
   return (
     <div id='navbar-desktop'>
-        <nav className={`navbar navbar-expand fixed-top ${isScrolled ? 'bg-dark' : 'bg-transparent'}`} style={{transition:".5s"}}>
+        <nav className={`navbar navbar-expand fixed-top ${isScrolled ? (theme === 'dark' ? 'bg-dark' : 'bg-light') : 'bg-transparent'}`} style={{transition:".5s"}}>
           <div className="container">
             <Link className="navbar-brand" to="header" smooth={true} duration={500}>
               <img src="imgs/logo-sr-garotinho.jpg" 
@@ -31,11 +36,17 @@ const Navbar = () => {
                 width={'70'}/>  
             </Link>    
             <ul className='navbar-nav'>
-                <li className='nav-item'><Link className='nav-link' to="header" smooth={true} duration={500}>Home</Link></li>
-                <li className='nav-item'><Link className='nav-link' to="servicos" smooth={true} duration={500}>Serviços</Link></li>
-                <li className='nav-item'><Link className='nav-link' to="depoimentos" smooth={true} duration={500}>Depoimentos</Link></li>
-                <li className='nav-item'><Link className='nav-link' to="contato" smooth={true} duration={500}>Contato</Link></li>
+                <li className='nav-item'><Link className={`nav-link ${theme === 'dark' ? 'link-dark' : ''}`} to="header" smooth={true} duration={500}>Home</Link></li>
+                <li className='nav-item'><Link className={`nav-link ${theme === 'dark' ? 'link-dark' : ''}`} to="servicos" smooth={true} duration={500}>Serviços</Link></li>
+                <li className='nav-item'><Link className={`nav-link ${theme === 'dark' ? 'link-dark' : ''}`} to="depoimentos" smooth={true} duration={500}>Depoimentos</Link></li>
+                <li className='nav-item'><Link className={`nav-link ${theme === 'dark' ? 'link-dark' : ''}`} to="contato" smooth={true} duration={500}>Contato</Link></li>
+                <li>
+                  <button className="btn btn-primary" onClick={handleThemeChange}>
+                    {theme === 'dark' ? <i class="bi bi-sun"></i> : <i class="bi bi-moon"></i>}
+                  </button>
+                </li>
             </ul>
+            
           </div>
         </nav>
     </div>

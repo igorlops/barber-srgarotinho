@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect} from 'react';
+import { useContext, useEffect} from 'react';
 import Header from './components/Header/Header';
 import Services from './components/Services/Services';
 import Depoimentos from './components/Depoimentos/Depoimentos';
@@ -11,6 +11,7 @@ import NavbarMobile from './components/Navbar/NavbarMobile';
 import Whatsapp from './components/Itens/Whatsapp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
+import { ThemeContext } from './theme/Theme';
 
 function App() {
   useEffect(() => {
@@ -35,8 +36,9 @@ function App() {
     };
   }, []);
 
+  const { theme } = useContext(ThemeContext);
   return (
-      <div id="App" className='bg-dark text-white-50'>
+      <div id="App" className={theme === 'dark' ? 'bg-dark text-white-50' : 'bg-light text-dark-50'}>
           <Navbar/>
           <NavbarMobile/>
           <Element name="header">

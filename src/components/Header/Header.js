@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './Header.css'
 import Aos from 'aos';
+import { ThemeContext } from '../../theme/Theme';
+
 const Header = () => {
   useEffect(()=>{
     Aos.init()
-  },[])
+  },[]);
+
+  const {theme } = useContext(ThemeContext);
   return (
     <header id="home" className="header-container">
       <div className="image-wrapper">
@@ -18,7 +22,7 @@ const Header = () => {
         <div className='header-titulo'>
           <h1 data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1000">Barbearia <br /><span>O Sr. Garotinho</span></h1>
           <p data-aos="fade-right" data-aos-delay="1000" data-aos-easing="ease-in-sine" data-aos-duration="1000">Venha renovar seu visual. Trabalhamos com excelência e agilidade</p>
-          <button data-aos="fade-right" data-aos-delay="2000" data-aos-easing="ease-in-sine" data-aos-duration="1000" type="button" class="btn btn-warning">Entrar em contato</button>
+          <button data-aos="fade-right" data-aos-delay="2000" data-aos-easing="ease-in-sine" data-aos-duration="1000" type="button" className={`btn ${theme === 'dark' ? 'btn-warning-dark' : 'btn-warning-light'}`}>Entrar em contato</button>
         </div>
       </div>
     </header>

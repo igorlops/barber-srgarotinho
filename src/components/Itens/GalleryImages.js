@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../theme/Theme";
 import ImageGallery from "./ImageGallery"
 
 export const GalleryImages = () => {
@@ -31,10 +33,11 @@ export const GalleryImages = () => {
         "image_cliente":"imgs/clien.jpg"
         },
     ];
+    const { theme } = useContext(ThemeContext);
     return (
         <div className="container">
             <div className="my-5">
-                <h2 className="titulo-section text-center">Galeria de serviços</h2>
+                <h2 className={theme === 'dark' ? 'titulo-section-dark' : 'titulo-section-light'}>Galeria de serviços</h2>
             </div>
             <div className="d-flex justify-content-around flex-wrap align-items-center">
             {galeriaServicos.map((image_galery,index) => (
@@ -55,7 +58,7 @@ export const GalleryImages = () => {
             ))}
             </div>
             <div className="d-flex justify-content-center my-5">
-                <button className="btn btn-warning">Ver mais</button>
+                <button className="btn btn-warning-dark">Ver mais</button>
             </div>
         </div>
     )

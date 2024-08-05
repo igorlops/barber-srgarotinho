@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Depoimentos.css'
+import { ThemeContext } from '../../theme/Theme'
 
 const Depoimentos = () => {
   const avaliacoes_google = [
@@ -46,10 +47,10 @@ const Depoimentos = () => {
       "stars":5
     }
   ]
-
+  const { theme } = useContext(ThemeContext);
   return (
     <div id='depoimentos' className='py-5 text-center'>
-      <h2 className='titulo-section'>O que falaram sobre nós</h2>
+      <h2 className={theme === 'dark' ? 'titulo-section-dark' : 'titulo-section-light'}>O que falaram sobre nós</h2>
 
       <p>Segundo o Google Negócio, essas são as minhas avaliações:</p>
       <div className='avaliacoes-google'>
@@ -57,9 +58,9 @@ const Depoimentos = () => {
             <div className="d-flex justify-content-around flex-wrap">
             {avaliacoes_google.map(element => (
               <>
-                <div className="avaliacaosingle card my-3 p-2 col-xs-12 col-sm-6 col-md-3">
+                <div className={`avaliacaosingle card my-3 p-2 col-xs-12 col-sm-6 col-md-3 mx-2 ${theme === 'dark' ? 'bg-dark text-white' : ''}`}>
                   <div className="img-perfil-depoimento d-flex justify-content-center d-flex">
-                    <img src={element.imagem} alt="Não funcionou" />
+                    <img src={element.imagem} style={{borderRadius:"50%"}} alt="Não funcionou" />
                     <div className="titulo-avaliacao d-flex text-center flex-column">
                       <h6>{element.autor}</h6>
                       <div className="estrelas-depoimentos text-warning flex-row justify-content-center">

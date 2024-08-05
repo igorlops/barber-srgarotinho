@@ -1,9 +1,8 @@
-import {useEffect} from 'react'
+import {useContext, useEffect} from 'react'
 import './Services.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'
-import Card from 'react-bootstrap/Card'
-import {ImageGallery} from '../Itens/ImageGallery'
+import { ThemeContext } from '../../theme/Theme';
 import { GalleryImages } from '../Itens/GalleryImages';
 
 const Services = () => {
@@ -39,11 +38,11 @@ const Services = () => {
   servicos_individuais.forEach(element => {
     element.setAttribute('data-aos-delay',data_set_delay+=100)
   })
-
+  const { theme } = useContext(ThemeContext);
   return (
     <div id='services'>
       <div data-aos="fade-up" data-aos-delay={500} data-aos-easing="ease-in-sine" data-aos-duration="1000" className='py-5'>
-        <h2 className='text-center titulo-section'>
+        <h2 className={theme === 'dark' ? 'titulo-section-dark' : 'titulo-section-light'}>
           Serviços
         </h2>
       </div>
@@ -51,10 +50,10 @@ const Services = () => {
         <div className="d-flex flex-row flex-wrap justify-content-around">
           {listServicos.map((servico, index) => (
                 <div className="servico-individual mb-3" data-aos="fade-up" data-aos-delay={(index+1)*500} data-aos-easing="ease-in-sine" data-aos-duration="1000">
-                  <div style={{ width: '14rem' }} className='card bg-dark text-white'>
+                  <div style={{ width: '14rem' }} className={`card ${theme === 'dark' ? 'bg-dark text-white' : ''}`}>
                     <div className='card-body'>
                       <div className='text-center card-title'>
-                        <img src='imgs/poste-de-barbeiro-dark.svg' className='' alt='ícone poste de barbeiro'/>
+                        <img src={theme === 'dark' ? 'imgs/poste-de-barbeiro-dark.svg' : 'imgs/poste-de-barbeiro-light.svg'} className='' alt='ícone poste de barbeiro'/>
                         {servico.title}
                       </div>
                       <div className='card-text' >
@@ -99,7 +98,7 @@ const Services = () => {
                   data-aos-delay="2500"
                   data-aos-duration="1000" 
                   type="button" 
-                  class="btn btn-warning">
+                  className={`btn ${theme === 'dark' ? 'btn-warning-dark' : 'btn-warning-light'}`}>
                     Entrar em contato
                 </button>
               </div>
