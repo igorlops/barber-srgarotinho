@@ -9,6 +9,8 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer'; 
 import NavbarMobile from './components/Navbar/NavbarMobile'; 
 import Whatsapp from './components/Itens/Whatsapp';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap';
 
 function App() {
   useEffect(() => {

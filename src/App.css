@@ -17,7 +17,7 @@
   display: none;
 }
 #button-whatsapp{
-  font-size:50px;
+  font-size:40px;
   color: white;
   background-color: rgb(37, 211, 102);
   padding: 7px 20px;
@@ -26,6 +26,7 @@
   bottom: 20px;
   right: 20px;
   animation: whatsapp 5s infinite;
+  cursor: pointer;
 }
 
 @keyframes whatsapp {
@@ -43,6 +44,7 @@
 .titulo-section {
   font-size: 4.5em!important;
   margin-bottom: 5px;
+  color:#d7be91;
 }
 #button-whatsapp:hover{
   transition: .5s;
@@ -69,6 +71,10 @@
   background-color: #d7be91 !important;
   border: none!important;
 }
+.nav-link {
+  cursor: pointer!important;
+}
+
 
 @media screen and (max-width:600px) {
   #App #navbar-desktop {
@@ -76,5 +82,9 @@
   }
   #App #navbar-mobile {
     display: block;
+  }
+  .titulo-section {
+    font-size: 3em!important;
+    margin-bottom: 5px;
   }
 }

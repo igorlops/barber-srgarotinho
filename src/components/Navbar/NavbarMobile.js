@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
-
 const NavbarMobile = () => {
+
   return (
     <div id='navbar-mobile'>
         <nav class="navbar navbar-dark bg-dark fixed-top">
@@ -19,24 +19,15 @@ const NavbarMobile = () => {
               </div>
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li className='nav-link'><Link className='nav-link' to="header" smooth={true} duration={500}>Home</Link></li>
-                    <li className='nav-link'><Link className='nav-link' to="servicos" smooth={true} duration={500}>Serviços</Link></li>
-                    <li className='nav-link'><Link className='nav-link' to="depoimentos" smooth={true} duration={500}>Depoimentos</Link></li>
-                    <li className='nav-link'><Link className='nav-link' to="contato" smooth={true} duration={500}>Contato</Link></li>
+                    <li className='nav-link'><Link data-bs-dismiss="offcanvas" to="header" smooth={true} duration={500}>Home</Link></li>
+                    <li className='nav-link'><Link data-bs-dismiss="offcanvas" to="servicos" smooth={true} duration={500}>Serviços</Link></li>
+                    <li className='nav-link'><Link data-bs-dismiss="offcanvas" to="depoimentos" smooth={true} duration={500}>Depoimentos</Link></li>
+                    <li className='nav-link'><Link data-bs-dismiss="offcanvas" to="contato" smooth={true} duration={500}>Contato</Link></li>
                 </ul>
               </div>
             </div>
           </div>
         </nav>
-
-
-
-
-
-
-
-
-
     </div>
   )
 }

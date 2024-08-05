@@ -1,4 +1,4 @@
-import { ImageGallery } from "./ImageGallery"
+import ImageGallery from "./ImageGallery"
 
 export const GalleryImages = () => {
       

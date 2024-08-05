@@ -33,3 +33,10 @@
     font-size: 1.5rem;
     text-align: left;
 }
+
+@media (max-width:600px) {
+    .overlay-text-services{
+        font-size: 1rem;
+    }
+    
+}

@@ -1,14 +1,30 @@
-import { ImageViewer } from "react-image-viewer-dv"
+import React, { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
 
-export const ImageGallery = ({ img, alt }) => {
+const ImageGallery = ({ img, alt }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
+
   return (
-    <ImageViewer>
+    <>
       <img
         src={img}
         alt={alt}
-        className="img-fluid"
-        style={{ width: "100%", height: "100%",objectFit:"cover",objectPosition:"" }}
+        className="img-thumbnail"
+        onClick={handleShow}
       />
-    </ImageViewer>
+
+      <Modal show={showModal} onHide={handleClose} size="xl" centered>
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body>
+          <img src={img} alt={alt} style={{ width: '100%', height: 'auto' }} />
+        </Modal.Body>
+      </Modal>
+    </>
   );
 };
+
+export default ImageGallery;

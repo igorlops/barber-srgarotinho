@@ -1,0 +1,11 @@
+#contato iframe {
+    width:400px;
+    height: 450px;
+}
+
+@media (max-width:600px) {
+    #contato iframe {
+        width:300px;
+        height: 350px;
+    }
+}

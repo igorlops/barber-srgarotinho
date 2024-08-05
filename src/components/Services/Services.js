@@ -50,11 +50,11 @@ const Services = () => {
       <div className="container my-5">
         <div className="d-flex flex-row flex-wrap justify-content-around">
           {listServicos.map((servico, index) => (
-                <div className="servico-individual" data-aos="fade-up" data-aos-delay={(index+1)*500} data-aos-easing="ease-in-sine" data-aos-duration="1000">
+                <div className="servico-individual mb-3" data-aos="fade-up" data-aos-delay={(index+1)*500} data-aos-easing="ease-in-sine" data-aos-duration="1000">
                   <div style={{ width: '14rem' }} className='card bg-dark text-white'>
                     <div className='card-body'>
                       <div className='text-center card-title'>
-                        <img src='imgs/poste-de-barbeiro.png' alt='ícone poste de barbeiro'/>
+                        <img src='imgs/poste-de-barbeiro-dark.svg' className='' alt='ícone poste de barbeiro'/>
                         {servico.title}
                       </div>
                       <div className='card-text' >
@@ -88,9 +88,9 @@ const Services = () => {
                   alignItems:'center'
               }}>
           <div className="container">
-            <div className="d-flex justify-content-between flex-row w-100">
-              <div className='col-6'></div>
-              <div className="col-6 d-flex justify-content-center flex-column">
+            <div className="d-flex justify-content-between flex-row w-100 texto-overlay-servicos">
+              <div className='col-xs-12 col-md-6'></div>
+              <div className="col-xs-12 col-md-6 d-flex justify-content-center flex-column">
                 <p className="overlay-text-services" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">Transforme seu visual, eleve sua autoestima.</p>
                 <p className="overlay-text-services" data-aos="fade-right" data-aos-delay="1500" data-aos-duration="1000">Faça parte do nosso time de homens de bom gosto.</p>
                 <p className="overlay-text-services" data-aos="fade-right" data-aos-delay="2000" data-aos-duration="1000">Entre em contato e saiba mais sobre nossos serviços.</p>

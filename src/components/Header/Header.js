@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import './Header.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Aos from 'aos';
 const Header = () => {
   useEffect(()=>{
