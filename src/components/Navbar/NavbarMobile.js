@@ -11,7 +11,7 @@ const NavbarMobile = () => {
 
   return (
     <div id='navbar-mobile'>
-        <nav class={`navbar navbar-dark ${theme === 'dark' ? "bg-dark" : "bg-light"} fixed-top`}>
+        <nav class={`navbar ${theme === 'dark' ? "navbar-dark bg-dark border-bottom " : "bg-light-subtle border-bottom "} fixed-top border-body`}>
           <div class="container-fluid">
             <a className="navbar-brand">
               <img width={50} src="imgs/logo-sr-garotinho.jpg" alt="Logomarca Senhor Garotinho" />  
@@ -21,20 +21,22 @@ const NavbarMobile = () => {
             </button>
             <div class={`offcanvas offcanvas-end text-${theme === 'dark' ? "bg-dark" : "bg-light"}`} tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
               <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Barbearia Sr. Garotinho</h5>
+                <button type="button" class={`btn-close ${theme === 'dark' ? 'btn-close-white' : 'btn-close-black'}`} data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li className='nav-link'><Link data-bs-dismiss="offcanvas" to="header" smooth={true} duration={500}>Home</Link></li>
-                    <li className='nav-link'><Link data-bs-dismiss="offcanvas" to="servicos" smooth={true} duration={500}>Serviços</Link></li>
-                    <li className='nav-link'><Link data-bs-dismiss="offcanvas" to="depoimentos" smooth={true} duration={500}>Depoimentos</Link></li>
-                    <li className='nav-link'><Link data-bs-dismiss="offcanvas" to="contato" smooth={true} duration={500}>Contato</Link></li>
+                    <li className='nav-link'><Link className={`nav-link ${theme === 'dark' ? 'text-white' : 'text-dark'}`} data-bs-dismiss="offcanvas" to="header" smooth={true} duration={500}>Home</Link></li>
+                    <li className='nav-link'><Link className={`nav-link ${theme === 'dark' ? 'text-white' : 'text-dark'}`} data-bs-dismiss="offcanvas" to="servicos" smooth={true} duration={500}>Serviços</Link></li>
+                    <li className='nav-link'><Link className={`nav-link ${theme === 'dark' ? 'text-white' : 'text-dark'}`} data-bs-dismiss="offcanvas" to="depoimentos" smooth={true} duration={500}>Depoimentos</Link></li>
+                    <li className='nav-link'><Link className={`nav-link ${theme === 'dark' ? 'text-white' : 'text-dark'}`} data-bs-dismiss="offcanvas" to="contato" smooth={true} duration={500}>Contato</Link></li>
+                    <li>
+                      <button data-bs-dismiss="offcanvas" className="btn btn-secondary" onClick={handleThemeChange}>
+                        {theme === 'dark' ? <i class="bi bi-sun"></i> : <i class="bi bi-moon"></i>}
+                      </button>
+                    </li>
                 </ul>
               </div>
-              <button data-bs-dismiss="offcanvas" className="btn btn-primary" onClick={handleThemeChange}>
-                {theme === 'dark' ? <i class="bi bi-sun"></i> : <i class="bi bi-moon"></i>}
-              </button>
             </div>
           </div>
         </nav>

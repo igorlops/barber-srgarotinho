@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../theme/Theme";
 import ImageGallery from "./ImageGallery"
+import ButtonCTA from "./ButtonCTA";
 
 export const GalleryImages = () => {
       
@@ -58,7 +59,7 @@ export const GalleryImages = () => {
             ))}
             </div>
             <div className="d-flex justify-content-center my-5">
-                <button className="btn btn-warning-dark">Ver mais</button>
+                <ButtonCTA href="https://www.instagram.com/srgarotinho1/">Ver mais</ButtonCTA>
             </div>
         </div>
     )

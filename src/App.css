@@ -56,43 +56,66 @@
   color:#d7be91;
   text-align: center;
 }
-
-.btn-warning-dark {
-  margin-top: 20px;
-  background-color: #fff3dc !important;
-  border: none!important;
-  font-size: 20px!important;
-  font-weight: 500;
-}
-.btn-warning-dark:hover {
-  margin-top: 20px;
-  background-color: #d7be91 !important;
-  border: none!important;
-}
 .titulo-section-light {
+  z-index: 9999!important;
   font-size: 4.5em!important;
   margin-bottom: 5px;
   color:#68542f;
   text-align: center;
 }
 
+.btn-warning-dark {
+  margin-top: 20px;
+  background-color: #fff3dc !important;
+  font-size: 20px!important;
+  font-weight: 500;
+}
+.btn-warning-dark:hover {
+  margin-top: 20px;
+  background-color: #d7be91 !important;
+  color: #fff!important;
+}
+
 .btn-warning-light {
   margin-top: 20px;
   background-color: #c9aa70 !important;
-  border: none!important;
   font-size: 20px!important;
   font-weight: 500;
+  color: white!important;
 }
 .btn-warning-light:hover {
   margin-top: 20px;
   background-color: #68542f !important;
-  color: white;
-  border: none!important;
+  color: white!important;
 }
 .nav-link {
   cursor: pointer!important;
 }
+.btn-instagram {
+  background-color: #F09433!important;
+  border: none!important;
+  color: #fff!important;
+  padding: 10px 20px!important;
+  border-radius: 5px!important;
+  text-decoration: none!important;
+}
 
+.btn-instagram:hover {
+  background-color: #C17A29!important; /* Cor mais escura */
+}
+
+.btn-whatsapp {
+  background-color: #25D366!important;
+  border: none!important;
+  color: #fff!important;
+  padding: 10px 20px!important;
+  border-radius: 5px!important;
+  text-decoration: none!important;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1D9A52!important; /* Cor mais escura */
+}
 
 @media screen and (max-width:600px) {
   #App #navbar-desktop {
@@ -101,8 +124,17 @@
   #App #navbar-mobile {
     display: block;
   }
-  .titulo-section {
+  .titulo-section-dark {
     font-size: 3em!important;
     margin-bottom: 5px;
+    color:#d7be91;
+    text-align: center;
+  }
+  .titulo-section-light {
+    z-index: 9999!important;
+    font-size: 3em!important;
+    margin-bottom: 5px;
+    color:#68542f;
+    text-align: center;
   }
 }

@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'
 import { ThemeContext } from '../../theme/Theme';
 import { GalleryImages } from '../Itens/GalleryImages';
+import ButtonCTA from '../Itens/ButtonCTA';
 
 const Services = () => {
 
@@ -93,14 +94,7 @@ const Services = () => {
                 <p className="overlay-text-services" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">Transforme seu visual, eleve sua autoestima.</p>
                 <p className="overlay-text-services" data-aos="fade-right" data-aos-delay="1500" data-aos-duration="1000">Faça parte do nosso time de homens de bom gosto.</p>
                 <p className="overlay-text-services" data-aos="fade-right" data-aos-delay="2000" data-aos-duration="1000">Entre em contato e saiba mais sobre nossos serviços.</p>
-                <button 
-                  data-aos="fade-right" 
-                  data-aos-delay="2500"
-                  data-aos-duration="1000" 
-                  type="button" 
-                  className={`btn ${theme === 'dark' ? 'btn-warning-dark' : 'btn-warning-light'}`}>
-                    Entrar em contato
-                </button>
+                <ButtonCTA href={'https://wa.me/5585988708195?text=Ola,%20gostaria%20de%20renovar%20meu%20visual'}>Quero mudar o visual</ButtonCTA>
               </div>
             </div>
           </div>

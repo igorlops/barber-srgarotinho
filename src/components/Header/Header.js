@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import './Header.css'
 import Aos from 'aos';
 import { ThemeContext } from '../../theme/Theme';
+import ButtonCTA from '../Itens/ButtonCTA';
 
 const Header = () => {
   useEffect(()=>{
@@ -22,7 +23,7 @@ const Header = () => {
         <div className='header-titulo'>
           <h1 data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1000">Barbearia <br /><span>O Sr. Garotinho</span></h1>
           <p data-aos="fade-right" data-aos-delay="1000" data-aos-easing="ease-in-sine" data-aos-duration="1000">Venha renovar seu visual. Trabalhamos com excelência e agilidade</p>
-          <button data-aos="fade-right" data-aos-delay="2000" data-aos-easing="ease-in-sine" data-aos-duration="1000" type="button" className={`btn ${theme === 'dark' ? 'btn-warning-dark' : 'btn-warning-light'}`}>Entrar em contato</button>
+          <ButtonCTA href="https://wa.me/5585988708195?text=Ola,%20gostaria%20de%20renovar%20meu%20visual">Entrar em contato</ButtonCTA>
         </div>
       </div>
     </header>
