@@ -1,51 +1,90 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-scroll';
-import { ThemeContext } from '../../theme/Theme' 
+import { ThemeContext } from '../../theme/Theme'
 
 const Navbar = () => {
-  
-  const {theme, setTheme} = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   const [isScrolled, setIsScrolled] = useState(false);
-
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   const handleThemeChange = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
+
   return (
-    <div id='navbar-desktop'>
-        <nav className={`navbar navbar-expand fixed-top ${isScrolled ? (theme === 'dark' ? 'bg-dark border-bottom' : 'bg-light-subtle border-bottom') : 'bg-transparent'} border-body`} style={{transition:".5s"}}>
-          <div className="container">
-            <Link className="navbar-brand" to="header" smooth={true} duration={500}>
-              <img src="imgs/logo-sr-garotinho.jpg" 
-                alt="Logomarca Senhor Garotinho" 
-                width={'70'}/>  
-            </Link>    
-            <ul className='navbar-nav'>
-                <li className='nav-item'><Link className={`nav-link ${theme === 'dark' ? 'link-dark' : (isScrolled ? ('') : ('text-white'))}`} to="header" smooth={true} duration={500}>Home</Link></li>
-                <li className='nav-item'><Link className={`nav-link ${theme === 'dark' ? 'link-dark' : (isScrolled ? ('') : ('text-white'))}`} to="servicos" smooth={true} duration={500}>Serviços</Link></li>
-                <li className='nav-item'><Link className={`nav-link ${theme === 'dark' ? 'link-dark' : (isScrolled ? ('') : ('text-white'))}`} to="depoimentos" smooth={true} duration={500}>Depoimentos</Link></li>
-                <li className='nav-item'><Link className={`nav-link ${theme === 'dark' ? 'link-dark' : (isScrolled ? ('') : ('text-white'))}`} to="contato" smooth={true} duration={500}>Contato</Link></li>
-                <li>
-                  <button className="btn btn-primary" onClick={handleThemeChange}>
-                    {theme === 'dark' ? <i class="bi bi-sun"></i> : <i class="bi bi-moon"></i>}
-                  </button>
-                </li>
-            </ul>
-            
+    <nav
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 hidden md:block ${isScrolled
+          ? 'py-3 bg-slate-950/80 backdrop-blur-lg border-b border-white/10 shadow-2xl'
+          : 'py-6 bg-transparent'
+        }`}
+    >
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        <Link
+          to="home"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer group flex items-center gap-3"
+        >
+          <div className="relative overflow-hidden rounded-full border-2 border-orange-600/50 group-hover:border-orange-500 transition-colors duration-300">
+            <img
+              src="imgs/logo-sr-garotinho.jpg"
+              alt="Logomarca Senhor Garotinho"
+              className="w-12 h-12 object-cover group-hover:scale-110 transition-transform duration-500"
+            />
           </div>
-        </nav>
-    </div>
+          <span className="text-white font-premium font-bold tracking-tighter text-xl group-hover:text-orange-500 transition-colors duration-300">
+            SR. GAROTINHO
+          </span>
+        </Link>
+
+        <div className="flex items-center gap-8">
+          <ul className="flex items-center gap-8">
+            {['home', 'servicos', 'depoimentos', 'contato'].map((item) => (
+              <li key={item}>
+                <Link
+                  to={item}
+                  smooth={true}
+                  duration={500}
+                  offset={-80}
+                  className="text-slate-300 hover:text-orange-500 font-semibold text-sm uppercase tracking-widest cursor-pointer transition-all duration-300 relative group"
+                  activeClass="text-orange-500"
+                  spy={true}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-4 pl-8 border-l border-white/10">
+            <button
+              onClick={handleThemeChange}
+              className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800 text-white hover:bg-orange-600 transition-all duration-300 shadow-lg"
+              title="Alternar Tema"
+            >
+              {theme === 'dark' ? <i className="bi bi-sun"></i> : <i className="bi bi-moon"></i>}
+            </button>
+
+            <a
+              href="https://wa.me/5585988708195"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2.5 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg shadow-orange-900/20 active:scale-95"
+            >
+              Agendar
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
   )
 }
 

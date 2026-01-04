@@ -1,5 +1,4 @@
-import {useContext, useEffect} from 'react'
-import './Services.css'
+import { useContext, useEffect } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 import { ThemeContext } from '../../theme/Theme';
@@ -7,101 +6,119 @@ import { GalleryImages } from '../Itens/GalleryImages';
 import ButtonCTA from '../Itens/ButtonCTA';
 
 const Services = () => {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1000,
+    });
+  }, [])
 
-  useEffect(()=>{
-    AOS.init()
-  },[])
-  let listServicos = [
+  const listServicos = [
     {
-      "title":"Corte social",
-      "detalhes":"Corte clássico e elegante, ideal para diversas ocasiões",
+      "title": "Corte Social",
+      "detalhes": "Corte clássico e elegante, ideal para diversas ocasiões e ambientes profissionais.",
+      "icon": "✂️"
     },
     {
-      "title":"Corte degradê",
-      "detalhes":"Corte moderno e versátil, com efeito de volume e movimento.",
+      "title": "Corte Degradê",
+      "detalhes": "Corte moderno e versátil, com efeito de transição suave, volume e movimento.",
+      "icon": "💈"
     },
     {
-      "title":"Barba Simples",
-      "detalhes":"Manutenção profissional da barba, com remoção de pelos excedentes.",
+      "title": "Barba Simples",
+      "detalhes": "Manutenção profissional da barba, com alinhamento e remoção de pelos excedentes.",
+      "icon": "🪒"
     },
     {
-      "title":"Barba Desenhada",
-      "detalhes":"Design personalizado da barba, realçando os traços faciais.",
+      "title": "Barba Desenhada",
+      "detalhes": "Design personalizado da barba, realçando os traços faciais com precisão.",
+      "icon": "🧔"
     },
     {
-      "title":"Sobrancelhas",
-      "detalhes":"Design preciso das sobrancelhas, harmonizando o rosto.",
+      "title": "Sobrancelhas",
+      "detalhes": "Design preciso das sobrancelhas, harmonizando o rosto e limpando o olhar.",
+      "icon": "✨"
+    },
+    {
+      "title": "Combo VIP",
+      "detalhes": "Experiência completa: Cabelo, Barba e Sobrancelha com toalha quente.",
+      "icon": "👑"
     }
   ]
 
-  let servicos_individuais = document.querySelectorAll('.servico-individual')
-  let data_set_delay = 500
-  servicos_individuais.forEach(element => {
-    element.setAttribute('data-aos-delay',data_set_delay+=100)
-  })
   const { theme } = useContext(ThemeContext);
+
   return (
-    <div id='services'>
-      <div data-aos="fade-up" data-aos-delay={500} data-aos-easing="ease-in-sine" data-aos-duration="1000" className='py-5'>
-        <h2 className={theme === 'dark' ? 'titulo-section-dark' : 'titulo-section-light'}>
-          Serviços
-        </h2>
-      </div>
-      <div className="container my-5">
-        <div className="d-flex flex-row flex-wrap justify-content-around">
+    <section id='servicos' className="py-24 bg-slate-900 overflow-hidden">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-16" data-aos="fade-up">
+          <span className="text-orange-500 font-bold uppercase tracking-widest text-sm">O que fazemos</span>
+          <h2 className="text-4xl md:text-5xl font-black text-white mt-2 mb-4 font-premium">Nossos Serviços</h2>
+          <div className="w-20 h-1.5 bg-orange-600 mx-auto rounded-full"></div>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {listServicos.map((servico, index) => (
-                <div className="servico-individual mb-3" data-aos="fade-up" data-aos-delay={(index+1)*500} data-aos-easing="ease-in-sine" data-aos-duration="1000">
-                  <div style={{ width: '14rem' }} className={`card ${theme === 'dark' ? 'bg-dark text-white' : ''}`}>
-                    <div className='card-body'>
-                      <div className='text-center card-title'>
-                        <img src={theme === 'dark' ? 'imgs/poste-de-barbeiro-dark.svg' : 'imgs/poste-de-barbeiro-light.svg'} className='' alt='ícone poste de barbeiro'/>
-                        {servico.title}
-                      </div>
-                      <div className='card-text' >
-                        {servico.detalhes}
-                      </div>
-                    </div>
-                  </div>
+            <div
+              key={index}
+              className="group relative p-8 rounded-3xl bg-slate-800/50 border border-slate-700 hover:border-orange-500/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              {/* Card Glow Effect */}
+              <div className="absolute -right-10 -top-10 w-32 h-32 bg-orange-600/10 rounded-full blur-3xl group-hover:bg-orange-600/20 transition-all duration-500"></div>
+
+              <div className="relative z-10 text-center">
+                <div className="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-500">
+                  {servico.icon}
                 </div>
+                <h3 className="text-2xl font-bold text-white mb-4">{servico.title}</h3>
+                <p className="text-slate-400 leading-relaxed mb-6">
+                  {servico.detalhes}
+                </p>
+                <div className="w-10 h-1 bg-orange-600/30 mx-auto group-hover:w-24 group-hover:bg-orange-600 transition-all duration-500 rounded-full"></div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
-      <div className='section-image-services' 
-          style={{
-              backgroundImage: `url('/imgs/backattachment.png')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundAttachment: "fixed",
-              height: "500px",
-              position: 'relative' /* Adicione position: relative ao elemento pai */
-          }}>
-        <div className="overlay-services" 
-              style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems:'center'
-              }}>
-          <div className="container">
-            <div className="d-flex justify-content-between flex-row w-100 texto-overlay-servicos">
-              <div className='col-xs-12 col-md-6'></div>
-              <div className="col-xs-12 col-md-6 d-flex justify-content-center flex-column">
-                <p className="overlay-text-services" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">Transforme seu visual, eleve sua autoestima.</p>
-                <p className="overlay-text-services" data-aos="fade-right" data-aos-delay="1500" data-aos-duration="1000">Faça parte do nosso time de homens de bom gosto.</p>
-                <p className="overlay-text-services" data-aos="fade-right" data-aos-delay="2000" data-aos-duration="1000">Entre em contato e saiba mais sobre nossos serviços.</p>
-                <ButtonCTA href={'https://wa.me/5585988708195?text=Ola,%20gostaria%20de%20renovar%20meu%20visual'}>Quero mudar o visual</ButtonCTA>
-              </div>
-            </div>
+
+      {/* Parallax Section */}
+      <div className="relative h-[500px] w-full flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-slate-950/70 z-10 backdrop-blur-[2px]"></div>
+          <img
+            src="/imgs/backattachment.png"
+            alt="Background"
+            className="w-full h-full object-cover fixed-background"
+            style={{ objectPosition: 'center' }}
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-20 text-center">
+          <div className="max-w-3xl mx-auto" data-aos="zoom-in">
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight font-premium">
+              Transforme seu visual, <br />
+              <span className="text-orange-500 uppercase italic">Eleve sua Autoestima</span>
+            </h2>
+            <p className="text-slate-300 text-lg mb-10 opacity-90">
+              Faça parte do nosso time de homens que valorizam a excelência.
+              Entre em contato agora e garanta sua vaga.
+            </p>
+            <ButtonCTA href={'https://wa.me/5585988708195?text=Ola,%20gostaria%20de%20renovar%20meu%20visual'}>
+              Agendar Experiência
+            </ButtonCTA>
           </div>
         </div>
       </div>
-      <GalleryImages/>
-    </div>
+
+      {/* Gallery Section */}
+      <div className="py-24">
+        <GalleryImages />
+      </div>
+    </section>
   )
 }
 
